@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Galerie Foto - Cățeluși</title>
+    <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+    <header>
+        <h1>Galerie Foto - Cățeluși</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="galerie.html">Galerie foto</a></li>
+                <li><a href="documentatie.html">Documentație</a></li>
+                <li><a href="resurse.html">Resurse</a></li>
+                <li><a href="tabel.html">Tabel informații</a></li>
+                <li><a href="harta.html">Hartă</a></li>
+                <li><a href="video.html">Videoclipuri</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Galerie foto cu cățeluși</h2>
+        <div class="gallery">
+            <img src="catel1.jpeg" alt="Cățel 1" onclick="openModal();currentSlide(1)">
+            <img src="catel2.jpeg" alt="Cățel 2" onclick="openModal();currentSlide(2)">
+            <img src="catel3.jpeg" alt="Cățel 3" onclick="openModal();currentSlide(3)">
+            <img src="catel4.jpeg" alt="Cățel 4" onclick="openModal();currentSlide(4)">
+            <img src="catel5.jpeg" alt="Cățel 5" onclick="openModal();currentSlide(5)">
+            <img src="catel6.jpeg" alt="Cățel 6" onclick="openModal();currentSlide(6)">
+        </div>
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <img id="modalImg">
+            </div>
+        </div>
+    </main>
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        function currentSlide(n) {
+            var slides = document.getElementsByClassName("gallery")[0].children;
+            document.getElementById("modalImg").src = slides[n - 1].src;
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("myModal")) {
+                closeModal();
+            }
+        }
+    </script>
+    <footer>
+        <p>© 2024 Liceul Teoretic Grigore Moisil</p>
+    </footer>
+</body>
+</html>
